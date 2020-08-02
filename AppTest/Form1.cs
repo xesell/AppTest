@@ -38,7 +38,7 @@ namespace AppTest
 
                 while (await sqlReader.ReadAsync())
                 {
-                    listBox1.Items.Add(Convert.ToString(sqlReader["Id"]) + "    " + Convert.ToString(sqlReader["DataOfIndications"])
+                    listBoxOutputData.Items.Add(Convert.ToString(sqlReader["Id"]) + "    " + Convert.ToString(sqlReader["DataOfIndications"])
                         + "     " + Convert.ToString(sqlReader["Indications"]) + "    " + Convert.ToString(sqlReader["DataPay"]) + "    "
                         + Convert.ToString(sqlReader["SumaPay"]));
                 }
@@ -52,8 +52,6 @@ namespace AppTest
                 if (sqlReader != null)
                     sqlReader.Close();
             }
-
-
 
         }
             
@@ -85,27 +83,30 @@ namespace AppTest
         private async void button1_Click(object sender, EventArgs e)
         {
             
-          if (label5.Visible)
+          if (LabelError.Visible)
             {
-                label5.Visible = false;
+                LabelError.Visible = false;
             }
 
-            if (!string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(textBox2.Text) &&
-                !string.IsNullOrEmpty(textBox3.Text) && !string.IsNullOrEmpty(textBox4.Text)
-                && !string.IsNullOrWhiteSpace(textBox1.Text) && !string.IsNullOrWhiteSpace(textBox2.Text)
-                && !string.IsNullOrWhiteSpace(textBox3.Text) && !string.IsNullOrWhiteSpace(textBox4.Text))
+          Boolean CheckingNull = !string.IsNullOrEmpty(textBoxDate.Text) && !string.IsNullOrEmpty(textBoxIndications.Text) &&
+                !string.IsNullOrEmpty(textBoxDatePay.Text) && !string.IsNullOrEmpty(textBoxSumaPay.Text)
+                && !string.IsNullOrWhiteSpace(textBoxDate.Text) && !string.IsNullOrWhiteSpace(textBoxIndications.Text)
+                && !string.IsNullOrWhiteSpace(textBoxDatePay.Text) && !string.IsNullOrWhiteSpace(textBoxSumaPay.Text);
+
+            if (CheckingNull)
             {
 
                 SqlCommand command = new SqlCommand("INSERT INTO [Table] (DataOfIndications, Indications, DataPay, SumaPay) " +
                     "VALUES(@DataOfIndications, @Indications, @DataPay, @SumaPay)", sqlConnection);
+                {
+                    command.Parameters.AddWithValue("DataOfIndications", textBoxDate.Text);
+                    command.Parameters.AddWithValue("Indications", textBoxIndications.Text);
+                    command.Parameters.AddWithValue("DataPay", textBoxDatePay.Text);
+                    command.Parameters.AddWithValue("SumaPay", textBoxSumaPay.Text);
+                }
 
-                command.Parameters.AddWithValue("DataOfIndications", textBox1.Text);
-                command.Parameters.AddWithValue("Indications", textBox2.Text);
-                command.Parameters.AddWithValue("DataPay", textBox3.Text);
-                command.Parameters.AddWithValue("SumaPay", textBox4.Text);
-
-                label6.Visible = true;
-                label6.Text = "Сохранено";
+                LabelSaveData.Visible = true;
+                LabelSaveData.Text = "Сохранено";
 
                 await command.ExecuteNonQueryAsync();
 
@@ -113,8 +114,8 @@ namespace AppTest
 
             else
             {
-                label5.Visible = true;
-                label5.Text = "Не все поля заполнены";
+                LabelError.Visible = true;
+                LabelError.Text = "Не все поля заполнены";
             }
         }
 
@@ -129,11 +130,18 @@ namespace AppTest
         private async void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
           
-            label6.Visible = false;
+            LabelSaveData.Visible = false;
             
-            listBox1.Items.Clear();
+            listBoxOutputData.Items.Clear();
             SqlDataReader sqlReader = null;
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM [Table]", sqlConnection);
+
+            {
+                textBoxDate.Clear();
+                textBoxIndications.Clear();
+                textBoxDatePay.Clear();
+                textBoxSumaPay.Clear();
+            }
 
             try
             {
@@ -141,7 +149,7 @@ namespace AppTest
 
                 while (await sqlReader.ReadAsync())
                 {
-                    listBox1.Items.Add(Convert.ToString(sqlReader["Id"]) + "    " + Convert.ToString(sqlReader["DataOfIndications"])
+                    listBoxOutputData.Items.Add(Convert.ToString(sqlReader["Id"]) + "    " + Convert.ToString(sqlReader["DataOfIndications"])
                         + "     " + Convert.ToString(sqlReader["Indications"]) + "    " + Convert.ToString(sqlReader["DataPay"]) + "    "
                         + Convert.ToString(sqlReader["SumaPay"]));
                 }

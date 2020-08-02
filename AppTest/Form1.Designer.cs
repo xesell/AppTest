@@ -37,20 +37,20 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.LabelSaveData = new System.Windows.Forms.Label();
+            this.LabelError = new System.Windows.Forms.Label();
+            this.ButtonSave = new System.Windows.Forms.Button();
+            this.textBoxSumaPay = new System.Windows.Forms.TextBox();
+            this.textBoxDatePay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxIndications = new System.Windows.Forms.TextBox();
+            this.textBoxDate = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBoxOutputData = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label6 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -120,17 +120,17 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.LabelSaveData);
+            this.tabPage1.Controls.Add(this.LabelError);
+            this.tabPage1.Controls.Add(this.ButtonSave);
+            this.tabPage1.Controls.Add(this.textBoxSumaPay);
+            this.tabPage1.Controls.Add(this.textBoxDatePay);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.textBoxIndications);
+            this.tabPage1.Controls.Add(this.textBoxDate);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -140,42 +140,54 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // label5
+            // LabelSaveData
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(517, 166);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "label5";
-            this.label5.Visible = false;
+            this.LabelSaveData.AutoSize = true;
+            this.LabelSaveData.ForeColor = System.Drawing.Color.Red;
+            this.LabelSaveData.Location = new System.Drawing.Point(6, 166);
+            this.LabelSaveData.Name = "LabelSaveData";
+            this.LabelSaveData.Size = new System.Drawing.Size(81, 13);
+            this.LabelSaveData.TabIndex = 10;
+            this.LabelSaveData.Text = "LabelSaveData";
+            this.LabelSaveData.Visible = false;
+            this.LabelSaveData.Click += new System.EventHandler(this.label6_Click);
             // 
-            // button1
+            // LabelError
             // 
-            this.button1.Location = new System.Drawing.Point(199, 160);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 25);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.LabelError.AutoSize = true;
+            this.LabelError.ForeColor = System.Drawing.Color.Red;
+            this.LabelError.Location = new System.Drawing.Point(517, 166);
+            this.LabelError.Name = "LabelError";
+            this.LabelError.Size = new System.Drawing.Size(55, 13);
+            this.LabelError.TabIndex = 9;
+            this.LabelError.Text = "LabelError";
+            this.LabelError.Visible = false;
             // 
-            // textBox4
+            // ButtonSave
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox4.Location = new System.Drawing.Point(362, 100);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 7;
+            this.ButtonSave.Location = new System.Drawing.Point(199, 160);
+            this.ButtonSave.Name = "ButtonSave";
+            this.ButtonSave.Size = new System.Drawing.Size(102, 25);
+            this.ButtonSave.TabIndex = 8;
+            this.ButtonSave.Text = "Сохранить";
+            this.ButtonSave.UseVisualStyleBackColor = true;
+            this.ButtonSave.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox3
+            // textBoxSumaPay
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.Location = new System.Drawing.Point(117, 100);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 6;
+            this.textBoxSumaPay.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxSumaPay.Location = new System.Drawing.Point(362, 100);
+            this.textBoxSumaPay.Name = "textBoxSumaPay";
+            this.textBoxSumaPay.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSumaPay.TabIndex = 7;
+            // 
+            // textBoxDatePay
+            // 
+            this.textBoxDatePay.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxDatePay.Location = new System.Drawing.Point(117, 100);
+            this.textBoxDatePay.Name = "textBoxDatePay";
+            this.textBoxDatePay.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDatePay.TabIndex = 6;
             // 
             // label4
             // 
@@ -215,26 +227,26 @@
             this.label1.Text = "Дата показаний";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox2
+            // textBoxIndications
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Location = new System.Drawing.Point(362, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBoxIndications.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxIndications.Location = new System.Drawing.Point(362, 25);
+            this.textBoxIndications.Name = "textBoxIndications";
+            this.textBoxIndications.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIndications.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxDate
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(117, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxDate.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxDate.Location = new System.Drawing.Point(117, 25);
+            this.textBoxDate.Name = "textBoxDate";
+            this.textBoxDate.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDate.TabIndex = 0;
+            this.textBoxDate.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.listBox1);
+            this.tabPage2.Controls.Add(this.listBoxOutputData);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -243,26 +255,14 @@
             this.tabPage2.Text = "Посмотреть базу";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBoxOutputData
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(786, 394);
-            this.listBox1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(6, 166);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
-            this.label6.Visible = false;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.listBoxOutputData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxOutputData.FormattingEnabled = true;
+            this.listBoxOutputData.Location = new System.Drawing.Point(3, 3);
+            this.listBoxOutputData.Name = "listBoxOutputData";
+            this.listBoxOutputData.Size = new System.Drawing.Size(786, 394);
+            this.listBoxOutputData.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -300,22 +300,22 @@
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDate;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ListBox listBoxOutputData;
+        private System.Windows.Forms.TextBox textBoxIndications;
+        private System.Windows.Forms.TextBox textBoxSumaPay;
+        private System.Windows.Forms.TextBox textBoxDatePay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonSave;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LabelError;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LabelSaveData;
         private System.Windows.Forms.ImageList imageList1;
     }
 }
